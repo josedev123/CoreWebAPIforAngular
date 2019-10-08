@@ -47,7 +47,7 @@ namespace CoreWebAPIforAngular.Controllers
 
             int eId = employee.Id;
 
-            return Ok(eId);
+            return Ok(employee);
         }
 
         // GET: Employee/Edit/5
