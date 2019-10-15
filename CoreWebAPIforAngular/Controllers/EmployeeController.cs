@@ -53,12 +53,14 @@ namespace CoreWebAPIforAngular.Controllers
         // GET: Employee/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Employee employeeInDb = context.Employees.SingleOrDefault(e => e.Id == id);
+
+            return Ok(employeeInDb);
         }
 
         // POST: Employee/Edit/5
         [HttpPost]
-        public ActionResult Edit(Employee employee)
+        public ActionResult Edit([FromBody] Employee employee)
         {
             Employee employeeInDb = context.Employees.SingleOrDefault(e => e.Id == employee.Id);
             employeeInDb.Name = employee.Name;
